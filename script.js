@@ -1,12 +1,20 @@
 let squares = [];
-let size = 256;
+let size = 0;
 const grid = document.querySelector(".container");
 
-for(let i = 0; i < size; i++){
-  squares.push(document.createElement('div'));
-  squares[i].setAttribute('class','square');
-  grid.appendChild(squares[i]);
+function generateGrid(newSize){
+  resetGrid();
+  size = newSize;
+  for(let i = 0; i < size; i++){
+    squares.push(document.createElement('div'));
+    squares[i].setAttribute('class','square');
+    squares[i].setAttribute('style','width: ' + 400/(Math.sqrt(size)) + 'px; height: ' + 400/(Math.sqrt(size)) + 'px;');
+    grid.appendChild(squares[i]);
+  }
 }
 
-for(let i = 0; i < squares.length; i++){
+function resetGrid(){
+  for(let i = 0; i < size; i++){
+    squares[i].remove();
+  }
 }

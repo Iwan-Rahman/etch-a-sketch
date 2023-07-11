@@ -22,8 +22,6 @@ html, body {
 }
 
 .square {
-  width: 25px;
-  height: 25px;
   border: 1px solid black;
   box-sizing: border-box;
 }
