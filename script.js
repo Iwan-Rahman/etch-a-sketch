@@ -18,3 +18,22 @@ function resetGrid(){
     squares[i].remove();
   }
 }
+
+document.body.addEventListener('mousedown', () => setHover());
+document.body.addEventListener('mouseup', () => clearHover());
+
+function setHover(){
+  for(let i = 0 ; i < size; i++){
+    squares[i].addEventListener('mousemove',color);
+  }
+}
+
+function clearHover(){
+  for(let i = 0; i < size; i++){
+    squares[i].removeEventListener('mousemove',color);
+  }
+}
+
+function color(event){
+  event.target.style.backgroundColor = 'plum';
+}
