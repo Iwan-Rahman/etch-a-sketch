@@ -52,6 +52,15 @@ document.querySelector('.color input').addEventListener('input',(e) => {
   color = document.querySelector('.color input').value;
 })
 
-
+let gridSizeInput = (document.querySelector('.gridConfig input'));
+document.querySelector('.gridConfig button').addEventListener('click',(e) => {
+  if(gridSizeInput.value > 100){
+    alert("Grid Size cannot be more than 100 x 100");
+  }else if(gridSizeInput.value < 1){
+    alert("Grid Size must at least be 1 x 1");
+  }else{
+    generateGrid((gridSizeInput.value)**2);
+  }
+});
 
 generateGrid(256);
