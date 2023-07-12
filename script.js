@@ -37,3 +37,5 @@ function clearHover(){
 function color(event){
   event.target.style.backgroundColor = 'plum';
 }
+
+generateGrid(256);
