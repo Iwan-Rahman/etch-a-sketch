@@ -216,7 +216,7 @@ function setTheme(newTheme) {
 
 
 let music = document.querySelector('audio');
-music.volume = 0.05;
+music.volume = 0.1;
 
 
 //From pixabay
