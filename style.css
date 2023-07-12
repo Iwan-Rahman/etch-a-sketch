@@ -83,6 +83,7 @@ h1 {
 
 .gridConfig input {
   text-align: center;
+  max-width: 100px;
 }
 
 .themeConfig {
@@ -99,6 +100,7 @@ button {
   padding: 2px 5px;
   box-sizing: border-box;
 }
+
 
 .footer {
 }
