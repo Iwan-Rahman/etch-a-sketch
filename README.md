@@ -12,11 +12,11 @@ Credits.
 The audio files were taken from Pixabay.
 
 chillmore:
-Happiness
-Lofi Vibes
-Study
-The Garden of Bliss
-The Weekend
+Happiness,
+Lofi Vibes,
+Study,
+The Garden of Bliss,
+The Weekend,
 Uplifting Mood
 
 Pixabay:
@@ -38,7 +38,7 @@ RoyaltyFreeMusic(Nver):
 Synthwave (Background Music)
 
 juliusH:
-Cool Jazz Loops
+Cool Jazz Loops,
 Dreamy Jazz
 
 Lexin_Music:
@@ -51,7 +51,7 @@ Music_For_Videos:
 Night Jazz
 
 FreeGroove:
-Saloon Piano
+Saloon Piano,
 Cocktail Music
 
 SergeQuadrado:
@@ -64,9 +64,9 @@ Lesiakower:
 Pixel Perfect
 
 Dream-Protocol
-64 Commodores
-Default
-Dial Up Blues
+64 Commodores,
+Default,
+Dial Up Blues,
 X-Com
 
 GeoffreyBurch:
