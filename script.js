@@ -39,15 +39,58 @@ function clearHover() {
 function colorSquare(event) {
   event.target.style.backgroundColor = color;
 }
-
-let colors = document.querySelectorAll('.color');
 let color = 'black';
+let colors = document.querySelectorAll('.color');
+let selectedColorNode;
 
 //Iterate through all colour divs except for the custom color
-for (let i = 0; i < colors.length - 1; i++) {
+for (let i = 0; i < colors.length; i++) {
   colors[i].addEventListener('click', (e) => {
-    color = e.target.style.backgroundColor
+    if(i != colors.length - 1){
+      color = e.target.style.backgroundColor
+    }else{
+      color = document.querySelector('.color input').value;
+    }
+
+    let defaultBorder = '';
+    if(selectedColorNode == 0){
+      defaultBorder = colors[1].style.border;
+    }else{
+      defaultBorder = colors[0].style.border;
+    }
+  
+    for(let j = 0; j <colors.length; j++){
+      colors[j].style.border = defaultBorder;
+    }
+
+    selectedColorNode = i;
+    applyColorSelectStyle();
   })
+}
+
+function applyColorSelectStyle(){
+  //deselect everything and find selected element
+  //find default style.
+
+  if(selectedColorNode != undefined){
+    switch(theme){
+      case 'classic':
+        colors[selectedColorNode].style.border = '4px ridge black';
+        break;
+      case 'bubblegum':
+        colors[selectedColorNode].style.border = '2px solid yellow';
+        break;
+      case 'space':
+        colors[selectedColorNode].style.border = '2px solid aqua';
+        break;
+      case 'jungle':
+        colors[selectedColorNode].style.border = '2px solid burlywood';
+        break;
+      case 'mono':
+        colors[selectedColorNode].style.border = '5px solid black';
+        break;
+    }
+  }
 }
 
 document.querySelector('.color input').addEventListener('input', (e) => {
@@ -212,6 +255,7 @@ function setTheme(newTheme) {
       buttons[buttons.length - 1].style.textDecoration = audioBtnTextDecoration;
       break;
   }
+  applyColorSelectStyle();
 }
 
 
