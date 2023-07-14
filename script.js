@@ -296,6 +296,7 @@ function nextTrack() {
   }
 
   music.src = musicFilePath + trackFiles[track];
+  music.play();
 }
 
 music.addEventListener('ended', nextTrack);
