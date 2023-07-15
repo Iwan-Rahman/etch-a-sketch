@@ -39,7 +39,7 @@ function clearHover() {
 function colorSquare(event) {
   event.target.style.backgroundColor = color;
 }
-let color = 'black';
+
 let colors = document.querySelectorAll('.color');
 let selectedColorNode;
 

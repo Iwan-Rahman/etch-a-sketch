@@ -58,6 +58,7 @@ h1 {
 .square {
   border: 1px solid grey;
   box-sizing: border-box;
+  user-select: none;
 }
 
 .palette {
