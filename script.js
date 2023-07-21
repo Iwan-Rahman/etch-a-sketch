@@ -11,13 +11,14 @@ function generateGrid(newSize) {
   for (let i = 0; i < size; i++) {
     squares.push(document.createElement('div'));
     squares[i].setAttribute('class', 'square');
-    if(showGrid){
-      for(square of squares){
-        square.style.borderWidth = "1px";
-      }
-    }
     squares[i].setAttribute('style', 'width: ' + 400 / (Math.sqrt(size)) + 'px; height: ' + 400 / (Math.sqrt(size)) + 'px;');
     grid.appendChild(squares[i]);
+  }
+  
+  if(showGrid){
+    for(square of squares){
+      square.style.borderWidth = "1px";
+    }
   }
   setTheme(theme);
 }
@@ -149,7 +150,7 @@ function setTheme(newTheme) {
   let h2 = document.querySelector('h2')
   let footer = document.querySelector('.footer');
   let buttons = document.querySelectorAll('button');
-  let audioBtnTextDecoration = buttons[buttons.length - 1].style.textDecoration;
+  let audioBtnTextDecoration = document.querySelector(".extraConfig button").style.textDecoration;
 
   switch (theme) {
     case 'classic':
@@ -175,7 +176,12 @@ function setTheme(newTheme) {
       }
 
       //Keeps the line decoration for the audio button the same as before
-      buttons[buttons.length - 1].style.textDecoration = audioBtnTextDecoration;
+      audioBtn.style.textDecoration = audioBtnTextDecoration;
+
+      //Change gridIcon button colour
+      document.querySelector("#gridIcon").style.fill = "#000000"
+      //Change Save button colour
+      document.querySelector("#floppy").style.fill = "#021691";
       break;
     case 'bubblegum':
       body.style.cssText = "background-color: hotpink; font-family: cursive, sans-serif;";
@@ -201,7 +207,9 @@ function setTheme(newTheme) {
         buttons[i].style.cssText = "font-family: cursive, sans-serif; color:yellow; border:none; border-radius:50%; background-color:hotpink; box-shadow:2px 2px yellow;";
       }
       //Keeps the line decoration for the audio button the same as before
-      buttons[buttons.length - 1].style.textDecoration = audioBtnTextDecoration;
+      audioBtn.style.textDecoration = audioBtnTextDecoration;
+      document.querySelector("#gridIcon").style.fill = "#FFFF00"
+      document.querySelector("#floppy").style.fill = "#FFFF00";
       break;
     case 'space':
       body.style.cssText = "background-color: black; font-family: 'Impact', sans-serif;";
@@ -225,7 +233,9 @@ function setTheme(newTheme) {
         buttons[i].style.cssText = "font-family:'Audiowide','Impact', 'Franklin Gothic Medium', sans-serif; color:blanchedalmond; border-top: 1px solid blanchedalmond; border-left: 1px solid blanchedalmond; border-radius:0%; background-color:black; box-shadow:2px 2px aqua;";
       }
       //Keeps the line decoration for the audio button the same as before
-      buttons[buttons.length - 1].style.textDecoration = audioBtnTextDecoration;
+      audioBtn.style.textDecoration = audioBtnTextDecoration;
+      document.querySelector("#gridIcon").style.fill = "#00ffff"
+      document.querySelector("#floppy").style.fill = "#00ffff";
       break;
     case 'jungle':
       body.style.cssText = "background-color: burlywood; font-family: 'Papyrus', sans-serif;";
@@ -249,7 +259,9 @@ function setTheme(newTheme) {
         buttons[i].style.cssText = "font-family:'Franklin Gothic Medium','Georgia', Times, sans-serif; color:burlywood; border: 1.5px dashed burlywood; border-radius:25%; background-color: rgb(68, 34, 9); box-shadow:none";
       }
       //Keeps the line decoration for the audio button the same as before
-      buttons[buttons.length - 1].style.textDecoration = audioBtnTextDecoration;
+      audioBtn.style.textDecoration = audioBtnTextDecoration;
+      document.querySelector("#gridIcon").style.fill = "#DEB887"
+      document.querySelector("#floppy").style.fill = "#DEB887";
       break;
     case 'mono':
       body.style.cssText = "background-color: black; font-family: 'Franklin Gothic Medium', sans-serif;";
@@ -273,7 +285,9 @@ function setTheme(newTheme) {
         buttons[i].style.cssText = "font-family: 'Franklin Gothic Medium', sans-serif; color:white; border-top: 2px solid grey; border-left: 2px solid grey; border-radius:0%; background-color:black; box-shadow:none;";
       }
       //Keeps the line decoration for the audio button the same as before
-      buttons[buttons.length - 1].style.textDecoration = audioBtnTextDecoration;
+      audioBtn.style.textDecoration = audioBtnTextDecoration;
+      document.querySelector("#gridIcon").style.fill = "#ffffff"
+      document.querySelector("#floppy").style.fill = "#ffffff";
       break;
   }
   applyColorSelectStyle();
@@ -294,7 +308,7 @@ let elevatorFiles = ['elevator-music.mp3', 'glass-of-wine.mp3', 'the-ghost-of-sh
 let musicFilePath = './audio/elevator/';
 let trackFiles;
 let track;
-let audioBtn = document.querySelector('.audioConfig button');
+let audioBtn = document.querySelector('.extraConfig button');
 audioBtn.style.textDecoration = 'line-through';
 
 function toggleMusic(e){
@@ -348,6 +362,17 @@ function setMusic() {
   track = 0;
   music.src = musicFilePath + trackFiles[track];
 }
+
+//Screenshot Code
+// document.querySelector('button').addEventListener('click', function() {
+//   html2canvas(document.querySelector('.specific'), {
+//       onrendered: function(canvas) {
+//           // document.body.appendChild(canvas);
+//         return Canvas2Image.saveAsPNG(canvas);
+//       }
+//   });
+// });
+
 
 generateGrid(256);
 setMusic();
