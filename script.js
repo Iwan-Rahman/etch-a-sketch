@@ -2,6 +2,8 @@ let squares = [];
 let size = 0;
 const grid = document.querySelector('.container');
 let theme = 'classic';
+const gridToggleBtn = document.querySelector('.gridConfig button:last-child');
+let showGrid = true;
 
 function generateGrid(newSize) {
   resetGrid();
@@ -9,6 +11,11 @@ function generateGrid(newSize) {
   for (let i = 0; i < size; i++) {
     squares.push(document.createElement('div'));
     squares[i].setAttribute('class', 'square');
+    if(showGrid){
+      for(square of squares){
+        square.style.borderWidth = "1px";
+      }
+    }
     squares[i].setAttribute('style', 'width: ' + 400 / (Math.sqrt(size)) + 'px; height: ' + 400 / (Math.sqrt(size)) + 'px;');
     grid.appendChild(squares[i]);
   }
@@ -20,6 +27,20 @@ function resetGrid() {
     squares[i].remove();
   }
 }
+
+gridToggleBtn.addEventListener("click",() => {
+  if(squares[0].style.borderWidth == "0px"){
+    for(square of squares){
+      square.style.borderWidth = "1px";
+      showGrid = true;
+    }    
+  }else{
+    for(square of squares){
+      square.style.borderWidth = "0px";
+      showGrid = false;
+    }
+  }
+})
 
 document.body.addEventListener('mousedown', () => setHover());
 document.body.addEventListener('mouseup', () => clearHover());
@@ -147,7 +168,7 @@ function setTheme(newTheme) {
       grid.style.cssText = 'border-color: black; box-shadow:none;';
       footer.style.cssText = 'color: black; text-shadow: none';
       for (let i = 0; i < squares.length; i++) {
-        squares[i].style.border = "1px solid grey";
+        squares[i].style.borderColor = "grey";
       }
       for (let i = 0; i < buttons.length; i++) {
         buttons[i].removeAttribute('style');
@@ -174,7 +195,7 @@ function setTheme(newTheme) {
       grid.style.cssText = 'border-color: hotpink; box-shadow:none;';
       footer.style.cssText = 'color: yellow; text-shadow: 1px 1px aquamarine';
       for (let i = 0; i < squares.length; i++) {
-        squares[i].style.border = "1px solid yellow";
+        squares[i].style.borderColor = "yellow";
       }
       for (let i = 0; i < buttons.length; i++) {
         buttons[i].style.cssText = "font-family: cursive, sans-serif; color:yellow; border:none; border-radius:50%; background-color:hotpink; box-shadow:2px 2px yellow;";
@@ -198,7 +219,7 @@ function setTheme(newTheme) {
       grid.style.cssText = 'border-color: blanchedalmond; box-shadow:none;';
       footer.style.cssText = 'color: blanchedalmond; text-shadow: 1px 1px aqua';
       for (let i = 0; i < squares.length; i++) {
-        squares[i].style.border = "1px solid aqua";
+        squares[i].style.borderColor = "aqua";
       }
       for (let i = 0; i < buttons.length; i++) {
         buttons[i].style.cssText = "font-family:'Audiowide','Impact', 'Franklin Gothic Medium', sans-serif; color:blanchedalmond; border-top: 1px solid blanchedalmond; border-left: 1px solid blanchedalmond; border-radius:0%; background-color:black; box-shadow:2px 2px aqua;";
@@ -222,7 +243,7 @@ function setTheme(newTheme) {
       grid.style.cssText = 'border-color: saddlebrown; box-shadow:none;';
       footer.style.cssText = 'color: rgb(68, 34, 9); text-shadow: none';
       for (let i = 0; i < squares.length; i++) {
-        squares[i].style.border = "1px solid burlywood";
+        squares[i].style.borderColor = "burlywood";
       }
       for (let i = 0; i < buttons.length; i++) {
         buttons[i].style.cssText = "font-family:'Franklin Gothic Medium','Georgia', Times, sans-serif; color:burlywood; border: 1.5px dashed burlywood; border-radius:25%; background-color: rgb(68, 34, 9); box-shadow:none";
@@ -246,7 +267,7 @@ function setTheme(newTheme) {
       grid.style.cssText = 'border-color: black; box-shadow: 10px 10px black';
       footer.style.cssText = 'color: white; text-shadow: 1px 1px grey';
       for (let i = 0; i < squares.length; i++) {
-        squares[i].style.border = "1px solid black";
+        squares[i].style.borderColor = "black";
       }
       for (let i = 0; i < buttons.length; i++) {
         buttons[i].style.cssText = "font-family: 'Franklin Gothic Medium', sans-serif; color:white; border-top: 2px solid grey; border-left: 2px solid grey; border-radius:0%; background-color:black; box-shadow:none;";

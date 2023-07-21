@@ -9,6 +9,7 @@ html, body {
   box-sizing: border-box;
 }
 
+
 body {
   padding: 2% 5%;
   display: flex;
@@ -56,7 +57,7 @@ h1 {
 }
 
 .square {
-  border: 1px solid grey;
+  border: 0px solid grey;
   box-sizing: border-box;
   user-select: none;
 }
@@ -102,3 +103,16 @@ button {
   padding: 2px 5px;
   box-sizing: border-box;
 }
+
+.gridConfig {
+  display: flex;
+  justify-content: center;
+  gap: 5px;
+}
+.gridConfig button:last-child {
+  margin-left: 5px;
+  width: 20px;
+  padding: 0;
+  padding-top: 2px;
+}
+
